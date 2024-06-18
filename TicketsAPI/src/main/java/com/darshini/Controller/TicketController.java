@@ -48,7 +48,7 @@ public class TicketController {
 		return new ResponseEntity<CustomTicket>(cust,HttpStatus.OK);
 	}
 	
-	@GetMapping("/getTicketBtStatus/{sts}")
+	@GetMapping("/getTicketByStatus/{sts}")
 	public ResponseEntity<CustomTicket> getTicketsByStatus(@PathVariable String sts){
 		CustomTicket cust= CustomTicket.builder().message("The tickets by status")
 		.status(HttpStatus.FOUND).success(true).build();
