@@ -21,7 +21,7 @@ public class CustomTicket {
 	private HttpStatus status;
 	private boolean success;
 	
-	private Ticket ticket;
+	//private Ticket ticket;
 
 	private List<Ticket> ticketlist;
 
