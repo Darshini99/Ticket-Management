@@ -1,21 +1,22 @@
 package com.darshini.DAO;
 
-import java.util.List;
-import java.util.Optional;
+import org.springframework.http.ResponseEntity;
 
 import com.darshini.Entity.Ticket;
+import com.darshini.Exceptions.TicketNotFoundException;
+import com.darshini.custom.CustomTicket;
 
 public interface TicketServices {
 	
-	public Ticket sendTicket(Ticket ticket);
+	public ResponseEntity<CustomTicket> sendTicket(Ticket ticket) throws NoSuchMethodException;
 	
-	public List<Ticket> allTickets();
+	public ResponseEntity<CustomTicket> allTickets() throws TicketNotFoundException;
 	
-	public List<Ticket> fetchByTicketStatus(String status);
+	public ResponseEntity<CustomTicket> fetchByTicketStatus(String status) throws TicketNotFoundException;
 	
-	public Optional<Ticket> ticketById (Integer id);
+	public ResponseEntity<CustomTicket> ticketById (Integer id) throws TicketNotFoundException;
 	
-	public void deleteTicketById(Integer id);
+	public ResponseEntity<CustomTicket> deleteTicketById(Integer id) throws TicketNotFoundException;
 	
-	public Ticket updateTicketById(Integer id,Ticket ticket);
+	public ResponseEntity<CustomTicket> updateTicketById(Integer id,Ticket ticket) throws TicketNotFoundException;
 }

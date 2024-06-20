@@ -20,9 +20,6 @@ public class CustomTicket {
 	private String message;
 	private HttpStatus status;
 	private boolean success;
-	
-	//private Ticket ticket;
-
 	private List<Ticket> ticketlist;
 
 }
