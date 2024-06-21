@@ -13,45 +13,50 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 @Entity
 @Table(name = "Tickets")
 public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ticketid;
-	final String msg = "Employee id must not be blank must not be null";
 	@NotBlank
-	@NotNull(message = "Employee id must not be null")
+	@NotNull(message = Message.msg)
 	private String empId;
 	@NotBlank
-	@NotNull(message = msg)
+	@NotNull(message = Message.msg)
 	private String title;
 	@NotBlank
-	@NotNull(message = msg)
+	@NotNull(message = Message.msg)
 	private String description;
 	@NotBlank
-	@NotNull(message = msg)
+	@NotNull(message = Message.msg)
 	private String status;
 	@NotBlank
-	@NotNull(message = msg)
+	@NotNull(message = Message.msg)
 	private String assignee;
 	@NotBlank
-	@NotNull(message = msg)
+	@NotNull(message = Message.msg)
 	private String priority;
 	@NotBlank
-	@NotNull(message = msg)
+	@NotNull(message = Message.msg)
 	private String reporter;
 	@Digits(fraction = 0, integer = 10)
-	@NotNull(message = msg)
+	@NotNull(message = Message.msg)
 	private Integer projectId;
 	private LocalDate createdAt;
 	private LocalDate updatedAt;
 	private LocalDate dueDate;
+	@Override
+	public String toString() {
+		return "Ticket [ticketid=" + ticketid + ", empId=" + empId + ", title=" + title + ", description=" + description
+				+ ", status=" + status + ", assignee=" + assignee + ", priority=" + priority + ", reporter=" + reporter
+				+ ", projectId=" + projectId + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", dueDate="
+				+ dueDate + "]";
+	}
 
 }
